@@ -2,7 +2,7 @@
 
 import javax.swing.JOptionPane;
 
-public class E01438C {
+public class E01716C {
 	public static void main(String[] args) {
 		String msg = "ABNT", nome = "";
 		JOptionPane.showMessageDialog(null, "Vamos deixar seu nome na norma ABNT!", msg,

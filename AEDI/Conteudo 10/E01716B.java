@@ -3,7 +3,7 @@
 import java.util.Scanner;
 import java.util.Arrays;
 
-public class E01438B {
+public class E01716B {
     public static void main(String[] args) {
         String[] nome = new String[100];
         int[] codigo = new int[nome.length];

@@ -2,7 +2,7 @@
 
 import javax.swing.JOptionPane;
 
-public class E01438A {
+public class E01716A {
 	public static void main(String[] args) {
 		String[] opcoes = { "Masculino", "Feminino" };
 		int idade, quantPessoas = 0, primeiraMulher = 0;
