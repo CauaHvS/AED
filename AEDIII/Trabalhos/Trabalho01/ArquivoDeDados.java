@@ -22,7 +22,7 @@ class ArquivoDeDados {
     // Nome externo do arquivo manipulado.
     private final String nome;
 
-    // Informacoes do cabecalho do arquivo.
+    //=====Informacoes do cabecalho do arquivo.=====//
 
     // Numero total de registros (válidos ou não).
     private int numTotalRegistros; // TAM = 4bytes = 1 int
@@ -42,7 +42,7 @@ class ArquivoDeDados {
     // Calculado apenas para facilitar a gerencia.
     private int numRegistrosMarcados;
 
-    // Informacoes do cabecalho do registro atual
+    //=====Informacoes do cabecalho do registro atual=====//
 
     // Posição do registro atual
     private long numRegistroAtual;
@@ -308,43 +308,45 @@ class ArquivoDeDados {
     // será o primeiro a ser reaproveitado.
     public void insereRegistro(byte[] dados) {
 
-        long numRegistro;
+
 
         if (numRegistrosMarcados == 0) { // Nao ha espaco para aproveitar
             // Insere novo registro no final do arquivo
-            numRegistro = numTotalRegistros;
+            numTotalRegistros ++;
 
             // Atualiza quantidade total de registros
-
+            tamTotalRegistro ++;
 
             // Atualiza quantidade de registros validos
-
+            numRegistrosValidos ++;
 
             // Armazena cabecalho do arquivo atualizado
-
+            armazenaCabecalhoArquivo();
 
         } else { // Existe espaco para aproveitar
             // Reaproveita primeiro registro da lista de marcados
-            numRegistro = primeiroRegistroMarcado;
+            primeiroRegistroMarcado ++;
 
             // Recupera cabecalho do registro a ser reaproveitado
-
+            recuperaCabecalhoRegistro(numRegistroAtual);
 
             // Atualiza lista de registros marcados
-
+            primeiroRegistroMarcado = proximoRegistroMarcado;
 
             // Atualiza quantidade de registros validos
-
+            numRegistrosMarcados ++;
 
             // Armazena cabecalho do arquivo atualizado
-
+            armazenaCabecalhoArquivo();
 
             // Reduz numero de registros marcados
-
+            numRegistrosMarcados --;
 
         }
 
         // Armazena registro na posicao (calculada acima)
+            armazenaRegistro(dados,numTotalRegistros -1);
+
 
 
     }
@@ -368,20 +370,20 @@ class ArquivoDeDados {
 
 
             // Armazena cabecalho de registro atualizado
-
+            armazenaCabecalhoRegistro(numRegistro);
 
             // Atualiza lista de registros marcados
             primeiroRegistroMarcado = numRegistro;
 
 
             // Atualiza quantidade de registros validos
-
+            numRegistrosMarcados --;
 
             // Armazena cabecalho do arquivo atualizado
-
+            armazenaCabecalhoArquivo();
 
             // Incrementa numero de registros marcados
-
+            numRegistrosMarcados++;
 
         }
     }
@@ -407,10 +409,10 @@ class ArquivoDeDados {
             if (marcaValidade == FLAG_REGISTRO_VALIDO) {
 
                 // Recupera dados do registro
-
+                byte[] dados = obtemRegistro(numRegistro);
 
                 // Insere registro no arquivo temporario
-
+                tmp.insereRegistro(dados);
 
             }
             numRegistro++;
