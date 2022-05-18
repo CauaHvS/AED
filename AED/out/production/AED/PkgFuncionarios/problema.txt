@@ -1,0 +1,33 @@
+Revisão Algorítmos e Estruturas de dados II
+pkg funcionarios
+Elaborar um código em Java para que seja possível efetuar o controle de funcionários de uma empresa.
+
+Requisitos:
+Classe Funcionário
+Criar uma classe Funcionário que deverá conter como atributos o nome e o salário do funcionário;
+Criar um construtor e os métodos get e set para todos os atributos da classe;
+Tipo Abstrato de Dados (TAD) Lista
+Utilizar um vetor de 100 posições como estrutura para armazenamento dos dados dos Funcioários. Não devem ser utilizadas classes já prontas do Java como ArrayList, Vector, etc.;
+
+Implementar os seguintes métodos com suas respectivas assinaturas:
+public void adiciona(Funcionario func) {}
+public Funcionario busca(int posicao) {}
+private boolean posicaoOcupada(int posicao) {}
+public void remove(int posicao) {}
+public boolean contem(Funcionario func) {}
+public int tamanho() {}
+public void imprimeLista() {}
+Classe de Teste (Main)
+
+Desenvolva um código Java para testar as classes Funcionário e Lista que realize as seguintes tarefas:
+
+Cadastre o nome e o salário de 5 funcionários
+a) Liste todos os dados dos funcionário
+b) Pesquise um funcionário existente
+c) Pesquise um funcionário que não existe
+d) Busque um funcionário por sua posição
+e) Busque um funcionário com uma posição inválida
+f) Liste todos os funcionários em ordem alfabética
+
+
+https://paste.sh/yCQ3sw3d#jk2X_UTBp--pACdX9Nhpa5FR
